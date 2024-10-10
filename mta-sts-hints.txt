@@ -2,3 +2,4 @@ launchdarkly.com
 live.com
 microsoft.com
 outlook.com
+zzz-does-not-have-mta-sts.internal
