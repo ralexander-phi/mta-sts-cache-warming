@@ -295,6 +295,4 @@ wizaly.com
 wonde.com
 wyday.com
 xerius.be
-xfinity.com
 zivver.com
-zzz-does-not-have-mta-sts.internal
