@@ -1,0 +1,4 @@
+launchdarkly.com
+live.com
+microsoft.com
+outlook.com

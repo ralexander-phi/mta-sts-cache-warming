@@ -1,7 +1,10 @@
+#!/usr/bin/env python
+
 import asyncio
 import click
-import re
 import dns.name
+import re
+import sys
 
 
 from postfix_mta_sts_resolver.resolver import STSFetchResult as FR
