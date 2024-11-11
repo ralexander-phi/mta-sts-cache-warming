@@ -5,6 +5,7 @@ import click
 import dns.name
 import re
 import sys
+import time
 
 
 from postfix_mta_sts_resolver.resolver import STSFetchResult as FR
@@ -83,7 +84,16 @@ def check(domain: str) -> bool:
         print(f"  Please normalize {domain} as {normalized}")
         return False
 
-    return asyncio.run(do_check(domain))
+    # Retry for intermittent failures
+    for _ in range(5):
+        mtasts_found = asyncio.run(do_check(domain))
+        if mtasts_found:
+            return True
+        print(f"  Retrying {domain}...")
+        time.sleep(10)
+
+    # persistent lookup failure
+    return False
 
 
 async def do_check(domain: str) -> bool:
