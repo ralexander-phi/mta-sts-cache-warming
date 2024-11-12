@@ -13,12 +13,17 @@ A pre-warmed MTA-STS cache protects the first email to a domain, which is not ge
 
 ### Postfix
 
-Use [postfix-mta-sts-resolver](https://github.com/Snawoot/postfix-mta-sts-resolver)
-
+Use [postfix-mta-sts-resolver](https://github.com/Snawoot/postfix-mta-sts-resolver).
 You can warm the cache by running the following command, either as a one-time import or periodically using cron:
 
     $ curl https://raw.githubusercontent.com/ralexander-phi/mta-sts-cache-warming/refs/heads/main/mta-sts-hints.txt \
       | /usr/sbin/postmap -q - socketmap:inet:127.0.0.1:8461:postfix
+
+Or use [postfix-tlspol](https://github.com/Zuplu/postfix-tlspol).
+Similarly, you can use this command for cache warming:
+
+    $ curl https://raw.githubusercontent.com/ralexander-phi/mta-sts-cache-warming/refs/heads/main/mta-sts-hints.txt \
+      | /usr/sbin/postmap -q - socketmap:inet:127.0.0.1:8642:query
 
 
 ## Similar work
