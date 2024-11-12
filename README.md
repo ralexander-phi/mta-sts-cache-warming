@@ -18,7 +18,7 @@ Use [postfix-mta-sts-resolver](https://github.com/Snawoot/postfix-mta-sts-resolv
 You can warm the cache by running the following command, either as a one-time import or periodically using cron:
 
     $ curl https://raw.githubusercontent.com/ralexander-phi/mta-sts-cache-warming/refs/heads/main/mta-sts-hints.txt \
-      | sudo /usr/sbin/postmap -q - socketmap:inet:127.0.0.1:8461:postfix
+      | /usr/sbin/postmap -q - socketmap:inet:127.0.0.1:8461:postfix
 
 
 ## Similar work
