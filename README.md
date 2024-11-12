@@ -11,7 +11,9 @@ A pre-warmed MTA-STS cache protects the first email to a domain, which is not ge
 
 ## Supported software
 
-[postfix-mta-sts-resolver](https://github.com/Snawoot/postfix-mta-sts-resolver)
+### Postfix
+
+Use [postfix-mta-sts-resolver](https://github.com/Snawoot/postfix-mta-sts-resolver)
 
 You can warm the cache by running the following command, either as a one-time import or periodically using cron:
 
