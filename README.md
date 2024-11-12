@@ -9,11 +9,14 @@ The sender may exercise their typical MTA-STS workflow to cache policies.
 A pre-warmed MTA-STS cache protects the first email to a domain, which is not generally protected by MTA-STS (as the cache would be empty and an attacker-in-the-middle may be able to block MTA-STS lookup attempts).
 
 
-## Mail senders using the list
+## Supported software
 
-None.
+[postfix-mta-sts-resolver](https://github.com/Snawoot/postfix-mta-sts-resolver)
 
-If you add MTA-STS cache warming to your mail server, let us know, we'll add you here.
+You can warm the cache by running the following command, either as a one-time import or periodically using cron:
+
+    $ curl https://raw.githubusercontent.com/ralexander-phi/mta-sts-cache-warming/refs/heads/main/mta-sts-hints.txt \
+      | sudo /usr/sbin/postmap -q - socketmap:inet:127.0.0.1:8461:postfix
 
 
 ## Similar work
